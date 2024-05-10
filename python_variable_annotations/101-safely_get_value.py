@@ -20,7 +20,7 @@ def safely_get_value(
     Parameters:
         dct (Mapping[K, V]): The input dictionary.
         key (K): The key to retrieve the value for.
-        default (Union[V, None], optional): The default value 
+        default (Union[V, None], optional): The default value
         to return if the key is not found. Defaults to None.
 
     Returns:
