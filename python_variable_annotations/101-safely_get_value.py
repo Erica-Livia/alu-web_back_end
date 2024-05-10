@@ -6,14 +6,10 @@ adding type anotation to the function
 """
 
 
-from typing import TypeVar, Mapping, Any, Union
+from typing import Mapping, Any, Union
 
 
-K = TypeVar('K')
-V = TypeVar('V')
-
-
-def safely_get_value(dct: Mapping[K, V], key: Any, default: Union[V, None] = None) -> Union[V, None]:
+def safely_get_value(dct: Mapping, key: Any, default: Union[None, Any] = None) -> Union[Any, None]:
     """
     Safely retrieves a value from a dictionary.
 
