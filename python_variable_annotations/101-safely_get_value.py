@@ -9,7 +9,7 @@ adding type anotation to the function
 from typing import Mapping, Any, Union
 
 
-def safely_get_value(dct: Mapping, key: Any, default: Union[None, Any] = None) -> Union[Any, None]:
+def safely_get_value(dct: Mapping, key: Any, default: Union[Any, None] = None) -> Union[Any, None]:
     """
     Safely retrieves a value from a dictionary.
 
