@@ -20,7 +20,7 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     
     returnsthe list of all the delays in ascending oder
     """
-    taks = [wait_random(max_delay) for x in range(n)]
+    tasks = [wait_random(max_delay) for x in range(n)]
     data_list = await gather(*tasks)
     new_list = []
 
