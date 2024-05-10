@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
 
-"""Define floor function"""
+"""
+Define floor function
+"""
+
+
 def floor(n: float) -> int:
     """ 
     floor function

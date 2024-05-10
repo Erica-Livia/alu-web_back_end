@@ -5,6 +5,7 @@
 Define a function concat
 """
 
+
 def concat(str1:str , str2:str):
     """
     Concat 2 strings
