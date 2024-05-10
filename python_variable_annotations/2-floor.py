@@ -6,8 +6,8 @@ Define floor function
 """
 
 
-def floor(n: float) -> int:
-    """ 
+def floor(n: float):
+    """
     floor function
     parameters
     n: float
