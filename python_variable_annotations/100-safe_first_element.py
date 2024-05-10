@@ -2,16 +2,13 @@
 
 
 """
-import List, Union and TypeVar from typing
+import Sequence, Union and Any from typing
 correct duck-typed annotations
 """
-from typing import List, Union, TypeVar, Sequence
+from typing import Any, Union, Sequence
 
 
-T = TypeVar('T')
-
-
-def safe_first_element(lst: Sequence[T]) -> Union[T, None]:
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
     """
     function safe_first_element
     parameters
