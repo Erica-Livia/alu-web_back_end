@@ -12,7 +12,7 @@ define a function sum_mixed_list
 
 def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
-    function sum_mixed_list
+    function sum_mixed_list sum list arguments
     parameters:
         mxd_lst: list of integers and floats
     returns arguments sum as a float
