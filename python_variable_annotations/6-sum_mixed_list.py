@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 
 
+from typing import List, Union
+
+
 """
+imported List and Union from typing
 define a function sum_mixed_list
 """
 
 
-def sum_mixed_list(mxd_lst: list[float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
     function sum_mixed_list
     parameters:
