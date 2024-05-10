@@ -1,7 +1,16 @@
 #!/usr/bin/env python3
 
 
-def element_length(lst: list):
+"""
+import List and Tuple from typing
+define function element_lenght
+"""
+
+
+from typing import List, Tuple
+
+
+def element_length(lst: List[str]) -> List[Tuple[str, int]]:
     """
     function ellement_length
     paramesters

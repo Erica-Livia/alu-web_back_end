@@ -1,7 +1,16 @@
 #!/usr/bin/env python3
 
 
-def make_multiplier(multiplier: float):
+"""
+define function make_multiplier
+import Callable from typing
+"""
+
+
+from typing import Callable
+
+
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     function make_multiplier
     parameters
