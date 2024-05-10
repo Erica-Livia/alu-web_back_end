@@ -2,8 +2,11 @@
 
 
 from typing import List
+
+
 """
 import List from typing
+define a function sum_list
 """
 
 

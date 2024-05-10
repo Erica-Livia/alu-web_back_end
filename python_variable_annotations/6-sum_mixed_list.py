@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 
 
-def sum_mixed_list(mxd_lst: list) -> float:
+from typing import List
+"""
+imported List from typing
+define a function sum_mixed_list
+"""
+
+
+def sum_mixed_list(mxd_lst: List[float, int]) -> float:
     """
     function sum_mixed_list
     parameters:
