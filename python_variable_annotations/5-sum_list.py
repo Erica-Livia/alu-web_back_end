@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 
 
-def sum_list(input_list: list[float]) -> float:
+from typing import List
+"""
+import List from typing
+"""
+
+
+def sum_list(input_list: List[float]) -> float:
     """
     function sum_list
     parameters
