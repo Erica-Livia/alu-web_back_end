@@ -7,7 +7,9 @@ define a function called filter_datum
 """
 
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
+def filter_datum(
+        fields: List[str], redaction: str, message: str, separator: str
+        ) -> str:
     """
     filter_datum functioni
     parameters:
@@ -16,5 +18,7 @@ def filter_datum(fields: List[str], redaction: str, message: str, separator: str
         message: string
         separator
     """
+
+
     pattern = '|'.join(f'(?<={field}=)[^{separator}]+' for field in fields)
     return re.sub(pattern, redaction, message)
