@@ -10,9 +10,13 @@ from typing import List, Tuple
 
 PII_FIELDS: Tuple[str, ...] = ('name', 'email', 'phone', 'ssn', 'password')
 
+
 class RedactingFormatter(logging.Formatter):
-    """ Redacting Formatter class """
-    
+    """
+    Redacting Formatter class
+    logging.Formatter
+    """
+
     REDACTION = "***"
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)s: %(message)s"
     SEPARATOR = ";"
@@ -23,7 +27,10 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         message = super(RedactingFormatter, self).format(record)
-        return filter_datum(self.fields, self.REDACTION, message, self.SEPARATOR)
+        return filter_datum(
+                self.fields, self.REDACTION, message, self.SEPARATOR
+                )
+
 
 def filter_datum(
         fields: List[str], redaction: str, message: str, separator: str
