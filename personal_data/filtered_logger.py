@@ -51,6 +51,7 @@ def filter_datum(
 
 
 def get_logger() -> logging.Logger:
+    """function get logger"""
     logger = logging.getLogger("user_data")
     logger.setLevel(logging.INFO)
     logger.propagate = False
