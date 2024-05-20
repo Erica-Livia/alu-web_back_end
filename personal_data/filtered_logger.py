@@ -7,7 +7,7 @@ define a function called filter_datum
 """
 
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str):
+def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
     """
     filter_datum functioni
     parameters:
