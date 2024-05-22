@@ -14,21 +14,22 @@ from mysql.connector import connection
 
 PII_FIELDS: Tuple[str, ...] = ('name', 'email', 'phone', 'ssn', 'password')
 
+
 def get_db() -> connection.MySQLConnection:
     """
-    Connects to the MySQL database using 
+    Connects to the MySQL database using
     credentials from environment variables.
     """
 
     # Fetching credentials from environment variables with defaults
-    
+
     db_username = os.getenv('PERSONAL_DATA_DB_USERNAME', 'root')
     db_password = os.getenv('PERSONAL_DATA_DB_PASSWORD', '')
     db_host = os.getenv('PERSONAL_DATA_DB_HOST', 'localhost')
     db_name = os.getenv('PERSONAL_DATA_DB_NAME')
 
     # Establishing the connection to the database
-    
+
     conn = mysql.connector.connect(
         user=db_username,
         password=db_password,
@@ -36,6 +37,7 @@ def get_db() -> connection.MySQLConnection:
         database=db_name
     )
     return conn
+
 
 class RedactingFormatter(logging.Formatter):
     """
