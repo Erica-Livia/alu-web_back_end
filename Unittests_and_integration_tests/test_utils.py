@@ -6,6 +6,8 @@ import unittest
 from parameterized import parameterized
 from unittest.mock import patch
 from utils import access_nested_map, get_json
+import requests
+
 
 class TestAccessNestedMap(unittest.TestCase):
     @parameterized.expand([
