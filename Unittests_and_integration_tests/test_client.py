@@ -29,10 +29,10 @@ class TestGithubOrgClient(unittest.TestCase):
     def test_public_repos_url(self, mock_org):
         """ Test public repos url """
         mock_org.return_value = {"repos_url":
-                                 "https://api.github.com/orgs/izzy/repos"}
-        org = GithubOrgClient("izzy")
+                                 "https://api.github.com/orgs/erica/repos"}
+        org = GithubOrgClient("erica")
         self.assertEqual(org._public_repos_url,
-                         "https://api.github.com/orgs/izzy/repos")
+                         "https://api.github.com/orgs/erica/repos")
 
     @patch("client.get_json")
     def test_public_repos(self, mock_get_json):
@@ -42,11 +42,11 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch.object(GithubOrgClient,
                           '_public_repos_url',
                           new_callable=Mock,
-                          return_value="https://api.github.com/orgs/izzy/repos"):
-            org = GithubOrgClient("izzy")
+                          return_value="https://api.github.com/orgs/erica/repos"):
+            org = GithubOrgClient("erica")
             self.assertEqual(org.public_repos(), ["testing", "todo-app"])
             mock_get_json.assert_called_once_with(
-                "https://api.github.com/orgs/izzy/repos")
+                "https://api.github.com/orgs/erica/repos")
 
     @parameterized.expand([
         ({"license": {"key": "my_license"}}, "my_license", True),
@@ -74,8 +74,7 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch.object(GithubOrgClient,
                           '_public_repos_url',
                           new_callable=Mock,
-                          return_value=
-                          f"https://api.github.com/orgs/{org_name}/repos"):
+                          return_value= f"https://api.github.com/orgs/erica/repos"):
             org = GithubOrgClient(org_name)
             repos = org.public_repos(license=license_key)
             self.assertEqual(repos, expected_repos)
