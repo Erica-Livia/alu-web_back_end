@@ -42,8 +42,7 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch.object(GithubOrgClient,
                           '_public_repos_url',
                           new_callable=Mock,
-                          return_value=
-                          "https://api.github.com/orgs/izzy/repos"):
+                          return_value="https://api.github.com/orgs/izzy/repos"):
             org = GithubOrgClient("izzy")
             self.assertEqual(org.public_repos(), ["testing", "todo-app"])
             mock_get_json.assert_called_once_with(
@@ -75,7 +74,8 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch.object(GithubOrgClient,
                           '_public_repos_url',
                           new_callable=Mock,
-                          return_value=f"https://api.github.com/orgs/{org_name}/repos"):
+                          return_value=
+                          f"https://api.github.com/orgs/{org_name}/repos"):
             org = GithubOrgClient(org_name)
             repos = org.public_repos(license=license_key)
             self.assertEqual(repos, expected_repos)
