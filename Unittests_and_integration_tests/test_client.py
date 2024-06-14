@@ -28,21 +28,26 @@ class TestGithubOrgClient(unittest.TestCase):
            new_callable=Mock)
     def test_public_repos_url(self, mock_org):
         """ Test public repos url """
-        mock_org.return_value = {"repos_url": "https://api.github.com/orgs/izzy/repos"}
+        mock_org.return_value = {"repos_url":
+                                 "https://api.github.com/orgs/izzy/repos"}
         org = GithubOrgClient("izzy")
-        self.assertEqual(org._public_repos_url, "https://api.github.com/orgs/izzy/repos")
+        self.assertEqual(org._public_repos_url,
+                         "https://api.github.com/orgs/izzy/repos")
 
     @patch("client.get_json")
     def test_public_repos(self, mock_get_json):
         """ test public repos """
-        mock_get_json.return_value = [{"name": "testing"}, {"name": "todo-app"}]
+        mock_get_json.return_value = [{"name": "testing"},
+                                      {"name": "todo-app"}]
         with patch.object(GithubOrgClient,
                           '_public_repos_url',
                           new_callable=Mock,
-                          return_value="https://api.github.com/orgs/izzy/repos"):
+                          return_value=
+                          "https://api.github.com/orgs/izzy/repos"):
             org = GithubOrgClient("izzy")
             self.assertEqual(org.public_repos(), ["testing", "todo-app"])
-            mock_get_json.assert_called_once_with("https://api.github.com/orgs/izzy/repos")
+            mock_get_json.assert_called_once_with(
+                "https://api.github.com/orgs/izzy/repos")
 
     @parameterized.expand([
         ({"license": {"key": "my_license"}}, "my_license", True),
@@ -58,7 +63,8 @@ class TestGithubOrgClient(unittest.TestCase):
         ("microsoft", "mit", ["repo4"]),
     ])
     @patch("client.get_json")
-    def test_public_repos_with_license(self, org_name, license_key, expected_repos, mock_get_json):
+    def test_public_repos_with_license(self, org_name, license_key,
+                                       expected_repos, mock_get_json):
         """ Test public repos with license """
         mock_get_json.return_value = [
             {"name": "repo1", "license": {"key": "apache-2.0"}},
@@ -73,7 +79,8 @@ class TestGithubOrgClient(unittest.TestCase):
             org = GithubOrgClient(org_name)
             repos = org.public_repos(license=license_key)
             self.assertEqual(repos, expected_repos)
-            mock_get_json.assert_called_once_with(f"https://api.github.com/orgs/{org_name}/repos")
+            mock_get_json.assert_called_once_with(
+                f"https://api.github.com/orgs/{org_name}/repos")
 
 
 @parameterized_class(
