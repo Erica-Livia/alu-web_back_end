@@ -1,17 +1,14 @@
-console.log('Welcome to Holberton School, what is your name?');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-if (process.stdin.isTTY) {
-  process.stdin.on('data', (data) => {
-    process.stdout.write(`Your name is: ${data}`);
-    process.exit();
-  });
-} else {
-  process.stdin.on('data', (data) => {
-    process.stdout.write(`Your name is: ${data}`);
-    process.exit();
-  });
+process.stdin.setEncoding('utf8');
 
-  process.on('exit', () => {
-    console.log('This important software is now closing');
-  });
-}
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    process.stdout.write(`Your name is: ${chunk}`);
+  }
+});
+
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
+});
